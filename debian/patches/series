@@ -1,0 +1,6 @@
+replace-linpack-with-lapack.patch
+silence.patch
+0003-Prevent-bound-violation.patch
+0004-Fix-NaN-propagation.patch
+0005-Disable-printing-of-time.patch
+0006-Stop-generating-iteration-log-files.patch

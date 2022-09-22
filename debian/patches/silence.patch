@@ -1,0 +1,43 @@
+From: Gard Spreemann <gspr@nonempty.org>
+Date: Thu, 30 Jul 2020 09:57:45 +0200
+Subject: silence
+
+The library's documentation indicates that it will only write out
+messages when the iprint flag is greater than zero. There are two
+places where writing still happens unconditionally, which this patch
+fixes.
+
+A similar patch was also applied by the SciPy project (see their issue
+3238).
+---
+ lbfgsb.f | 10 +++++++---
+ 1 file changed, 7 insertions(+), 3 deletions(-)
+
+diff --git a/lbfgsb.f b/lbfgsb.f
+index 54fd1f9..008370d 100644
+--- a/lbfgsb.f
++++ b/lbfgsb.f
+@@ -2550,7 +2550,9 @@ c     Determine the maximum step length.
+          if (gd .ge. zero) then
+ c                               the directional derivative >=0.
+ c                               Line search is impossible.
+-            write(6,*)' ascent direction in projection gd = ', gd
++            if (iprint .ge. 0) then
++               write(6,*)' ascent direction in projection gd = ', gd
++            endif
+             info = -4
+             return
+          endif
+@@ -3279,8 +3281,10 @@ c
+  55   continue
+       if ( dd_p .gt.zero ) then
+          call dcopy( n, xp, 1, x, 1 )
+-         write(6,*) ' Positive dir derivative in projection '
+-         write(6,*) ' Using the backtracking step '
++         if (iprint .ge. 0) then
++            write(6,*) ' Positive dir derivative in projection '
++            write(6,*) ' Using the backtracking step '
++         endif
+       else
+          go to 911
+       endif

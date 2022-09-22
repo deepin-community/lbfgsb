@@ -1,0 +1,7 @@
+Tests: tests.sh
+Depends: gfortran, libblas-dev, liblapack-dev, liblbfgsb-dev, shunit2
+Restrictions: allow-stderr
+
+Tests: examples-superficial-tests.sh
+Depends: liblbfgsb-examples, shunit2
+Restrictions: allow-stderr, superficial

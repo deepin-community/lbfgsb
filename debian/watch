@@ -1,0 +1,5 @@
+version=3
+
+opts="dversionmangle=s/\+dfsg\.\d+$//,filenamemangle=s/\S+\/v?(\S+)\.tar\.gz/lbfgsb-$1\.tar\.gz/" \
+   http://users.iems.northwestern.edu/~nocedal/lbfgsb.html \
+   Software/Lbfgsb\.(.+)\.tar\.(?:bz2|gz|xz) 

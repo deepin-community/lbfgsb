@@ -1,0 +1,112 @@
+Source: lbfgsb
+Maintainer: Gard Spreemann <gspr@nonempty.org>
+Section: math
+Priority: optional
+Standards-Version: 4.5.0
+Build-Depends: debhelper-compat (= 13), gfortran, libblas-dev, liblapack-dev
+Rules-Requires-Root: no
+Homepage: http://users.iems.northwestern.edu/~nocedal/lbfgsb.html
+Vcs-Browser: https://salsa.debian.org/gspr/lbfgsb
+Vcs-Git: https://salsa.debian.org/gspr/lbfgsb.git -b debian/sid
+
+Package: liblbfgsb0
+Section: libs
+Architecture: any
+Multi-Arch: same
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Limited-memory quasi-Newton bound-constrained optimization
+ Fortran library implementing limited-memory quasi-Newton
+ bound-constrained optimization as described in [1,2,3].
+ .
+ This package contains the library itself.
+ .
+ [1] R. H. Byrd, P. Lu and J. Nocedal. A Limited Memory Algorithm for
+ Bound Constrained Optimization, (1995), SIAM Journal on Scientific
+ and Statistical Computing , 16, 5, pp. 1190-1208.
+ .
+ [2] C. Zhu, R. H. Byrd and J. Nocedal. L-BFGS-B: Algorithm 778:
+ L-BFGS-B, FORTRAN routines for large scale bound constrained
+ optimization (1997), ACM Transactions on Mathematical Software, Vol
+ 23, Num. 4, pp. 550 - 560.
+ .
+ [3] J.L. Morales and J. Nocedal. L-BFGS-B: Remark on Algorithm 778:
+ L-BFGS-B, FORTRAN routines for large scale bound constrained
+ optimization (2011), to appear in ACM Transactions on Mathematical
+ Software.
+
+Package: liblbfgsb-dev
+Section: libdevel
+Architecture: any
+Multi-Arch: same
+Depends: ${misc:Depends}, liblbfgsb0 (= ${binary:Version})
+Suggests: liblbfgsb-doc, liblbfgsb-examples
+Description: Limited-memory quasi-Newton bound-constrained optimization (static library)
+ Fortran library implementing limited-memory quasi-Newton
+ bound-constrained optimization as described in [1,2,3].
+ .
+ This package contains the static library.
+ .
+ [1] R. H. Byrd, P. Lu and J. Nocedal. A Limited Memory Algorithm for
+ Bound Constrained Optimization, (1995), SIAM Journal on Scientific
+ and Statistical Computing , 16, 5, pp. 1190-1208.
+ .
+ [2] C. Zhu, R. H. Byrd and J. Nocedal. L-BFGS-B: Algorithm 778:
+ L-BFGS-B, FORTRAN routines for large scale bound constrained
+ optimization (1997), ACM Transactions on Mathematical Software, Vol
+ 23, Num. 4, pp. 550 - 560.
+ .
+ [3] J.L. Morales and J. Nocedal. L-BFGS-B: Remark on Algorithm 778:
+ L-BFGS-B, FORTRAN routines for large scale bound constrained
+ optimization (2011), to appear in ACM Transactions on Mathematical
+ Software.
+
+Package: liblbfgsb-doc
+Section: doc
+Architecture: all
+Multi-Arch: foreign
+Depends: ${misc:Depends}
+Description: Limited-memory quasi-Newton bound-constrained optimization (documentation)
+ Fortran library implementing limited-memory quasi-Newton
+ bound-constrained optimization as described in [1,2,3].
+ .
+ This package contains the documentation describing the library and
+ algorithm.
+ .
+ [1] R. H. Byrd, P. Lu and J. Nocedal. A Limited Memory Algorithm for
+ Bound Constrained Optimization, (1995), SIAM Journal on Scientific
+ and Statistical Computing , 16, 5, pp. 1190-1208.
+ .
+ [2] C. Zhu, R. H. Byrd and J. Nocedal. L-BFGS-B: Algorithm 778:
+ L-BFGS-B, FORTRAN routines for large scale bound constrained
+ optimization (1997), ACM Transactions on Mathematical Software, Vol
+ 23, Num. 4, pp. 550 - 560.
+ .
+ [3] J.L. Morales and J. Nocedal. L-BFGS-B: Remark on Algorithm 778:
+ L-BFGS-B, FORTRAN routines for large scale bound constrained
+ optimization (2011), to appear in ACM Transactions on Mathematical
+ Software.
+
+Package: liblbfgsb-examples
+Section: libs
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Limited-memory quasi-Newton bound-constrained optimization (examples)
+ Fortran library implementing limited-memory quasi-Newton
+ bound-constrained optimization as described in [1,2,3].
+ .
+ This package contains some example programs, their source code and
+ example output as provided by upstream.
+ .
+ [1] R. H. Byrd, P. Lu and J. Nocedal. A Limited Memory Algorithm for
+ Bound Constrained Optimization, (1995), SIAM Journal on Scientific
+ and Statistical Computing , 16, 5, pp. 1190-1208.
+ .
+ [2] C. Zhu, R. H. Byrd and J. Nocedal. L-BFGS-B: Algorithm 778:
+ L-BFGS-B, FORTRAN routines for large scale bound constrained
+ optimization (1997), ACM Transactions on Mathematical Software, Vol
+ 23, Num. 4, pp. 550 - 560.
+ .
+ [3] J.L. Morales and J. Nocedal. L-BFGS-B: Remark on Algorithm 778:
+ L-BFGS-B, FORTRAN routines for large scale bound constrained
+ optimization (2011), to appear in ACM Transactions on Mathematical
+ Software.

@@ -1,0 +1,23 @@
+From: Gard Spreemann <gspr@nonempty.org>
+Date: Thu, 30 Jul 2020 10:30:09 +0200
+Subject: Disable printing of time.
+
+Per SciPy commit
+ 04cd360b25c4bb1b831895f51b653ac282afc78c
+---
+ lbfgsb.f | 2 --
+ 1 file changed, 2 deletions(-)
+
+diff --git a/lbfgsb.f b/lbfgsb.f
+index 501879b..59f0a97 100644
+--- a/lbfgsb.f
++++ b/lbfgsb.f
+@@ -2873,8 +2873,6 @@ c     ************
+             if (info .eq. -8) write (6,9018)
+             if (info .eq. -9) write (6,9019)
+          endif
+-         if (iprint .ge. 1) write (6,3007) cachyt,sbtime,lnscht
+-         write (6,3008) time
+          if (iprint .ge. 1) then
+             if (info .eq. -4 .or. info .eq. -9) then
+                write (itfile,3002)

@@ -1,0 +1,26 @@
+From: Gard Spreemann <gspr@nonempty.org>
+Date: Thu, 30 Jul 2020 10:25:38 +0200
+Subject: Fix NaN propagation.
+
+This is based on SciPy commit
+ 4eb242fabeef7d1871d21936bee275be4fda1844
+---
+ lbfgsb.f | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+diff --git a/lbfgsb.f b/lbfgsb.f
+index 7c6b7fc..501879b 100644
+--- a/lbfgsb.f
++++ b/lbfgsb.f
+@@ -2977,6 +2977,11 @@ c     ************
+       sbgnrm = zero
+       do 15 i = 1, n
+         gi = g(i)
++        if (gi.ne.gi) then
++c          NaN value in gradient: propagate it
++           sbgnrm = gi
++           return
++        endif
+         if (nbd(i) .ne. 0) then
+            if (gi .lt. zero) then
+               if (nbd(i) .ge. 2) gi = max((x(i)-u(i)),gi)

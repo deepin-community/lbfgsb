@@ -1,0 +1,27 @@
+From: Gard Spreemann <gspr@nonempty.org>
+Date: Thu, 30 Jul 2020 10:15:21 +0200
+Subject: Prevent bound violation.
+
+This is based on SciPy's commits
+ cb9ed45d1a25d77204c737a8e1489dfb9606241f
+ e5ffa787555a60caf2ed9d0046a9ab782457fea4
+---
+ lbfgsb.f | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/lbfgsb.f b/lbfgsb.f
+index 008370d..7c6b7fc 100644
+--- a/lbfgsb.f
++++ b/lbfgsb.f
+@@ -2569,8 +2569,11 @@ c                               Line search is impossible.
+          if (stp .eq. one) then
+             call dcopy(n,z,1,x,1)
+          else
++c        take step and prevent rounding error beyond bound
+             do 41 i = 1, n
+                x(i) = stp*d(i) + t(i)
++               if (nbd(i).eq.1.or.nbd(i).eq.2) x(i) = max(x(i), l(i))
++               if (nbd(i).eq.2.or.nbd(i).eq.3) x(i) = min(x(i), u(i))
+   41        continue
+          endif
+       else

@@ -1,0 +1,7 @@
+Document: liblbfgsb-doc
+Title: L-BFGS-B manual
+Abstract: This manual describes the algorithm behind, and the implementation of L-BFGS-B.
+Section: Science/Mathematics
+
+Format: PDF
+Files: /usr/share/doc/liblbfgsb/*.pdf
