@@ -1,5 +1,6 @@
-version=3
-
-opts="dversionmangle=s/\+dfsg\.\d+$//,filenamemangle=s/\S+\/v?(\S+)\.tar\.gz/lbfgsb-$1\.tar\.gz/" \
-   http://users.iems.northwestern.edu/~nocedal/lbfgsb.html \
-   Software/Lbfgsb\.(.+)\.tar\.(?:bz2|gz|xz) 
+version=4
+opts="dversionmangle=s/@DEB_EXT@//, \
+      filenamemangle=s/(?:.*?)?v?(\d[\d.]*@ARCHIVE_EXT@)/@PACKAGE@-$1/, \
+      oversionmangle=s/(.*)/$1+dfsg.4/" \
+      http://users.iems.northwestern.edu/~nocedal/lbfgsb.html \
+      Software/Lbfgsb\.(.+)\.tar\.gz

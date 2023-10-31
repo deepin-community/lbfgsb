@@ -1,3 +1,40 @@
+lbfgsb (3.0+dfsg.4-1) unstable; urgency=medium
+
+  [ Debian Janitor ]
+  * Use https in upstream metadata.
+  * Remove duplicate field in upstream metadata.
+
+  [ Gard Spreemann ]
+  * New DFSG repack without upstream's PDFs. This is due to doubts about
+    whether upstream intends these to be under the BSD-3-clause
+    license. Moreover, as already typeset PDFs, they are not in a
+    preferred form for modification.
+  * Drop liblbfgsb-doc binary that used to ship said PDFs.
+  * Install README with liblbfgsb-dev.
+  * Standards-version 4.6.2.0. No changes needed.
+  * Clean up watch file.
+
+ -- Gard Spreemann <gspr@nonempty.org>  Tue, 28 Feb 2023 20:13:22 +0100
+
+lbfgsb (3.0+dfsg.3-11) unstable; urgency=medium
+
+  * Simplify build flags. (Closes: #1015469)
+  * Standards-version 4.6.1.0. No changes needed.
+
+ -- Gard Spreemann <gspr@nonempty.org>  Wed, 20 Jul 2022 13:24:01 +0200
+
+lbfgsb (3.0+dfsg.3-10) unstable; urgency=medium
+
+  [ Debian Janitor ]
+  * Trim trailing whitespace.
+
+  [ Gard Spreemann ]
+  * Standards-version 4.6.0.1. No changes needed.
+  * Started upstream metadata.
+  * Change log file disabling patch to preserve upstream ABI.
+
+ -- Gard Spreemann <gspr@nonempty.org>  Mon, 13 Dec 2021 15:11:19 +0100
+
 lbfgsb (3.0+dfsg.3-9) unstable; urgency=medium
 
   * New-style dh compat level.
@@ -80,7 +117,7 @@ lbfgsb (3.0+dfsg.2-1) unstable; urgency=medium
   * Multi-arch support for the library packages.
   * Explicitly set compile flags.
   * Enable hardening.
-  
+
  -- Gard Spreemann <gspreemann@gmail.com>  Fri, 20 May 2016 18:04:05 +0200
 
 lbfgsb (3.0+dfsg.1-1) unstable; urgency=medium

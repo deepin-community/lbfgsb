@@ -1,0 +1,24 @@
+Reference:
+- Title: A Limited Memory Algorithm for Bound Constrained Optimization
+  Author: R. H. Byrd, P. Lu and J. Nocedal
+  Journal: SIAM Journal on Scientific and Statistical Computing
+  Year: 1995
+  Volume: 16
+  Number: 5
+  Pages: 1190-1208
+- Title: 'L-BFGS-B: Algorithm 778: L-BFGS-B, FORTRAN routines for large scale bound
+    constrained optimization'
+  Author: C. Zhu, R. H. Byrd and J. Nocedal
+  Journal: ACM Transactions on Mathematical Software
+  Year: 1997
+  Volume: 23
+  Number: 4
+  Pages: 550-560
+- Title: 'Remark on Algorithm 778: L-BFGS-B, FORTRAN routines for large scale bound
+    constrained optimization'
+  Author: J.L. Morales and J. Nocedal
+  Journal: ACM Transactions on Mathematical Software
+  Year: 2011
+  Volume: 38
+  Number: 1
+  Pages: 1-4
