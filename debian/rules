@@ -2,16 +2,8 @@
 
 SONAME=liblbfgsb.so.0
 
-# Enable hardening, but remove pie flag since we're building a shared
-# object.  See also
-# https://lists.debian.org/debian-devel/2013/01/msg00225.html.
-MAINTOPTS = hardening=+all,-pie
-FCFLAGS:=$(shell DEB_BUILD_MAINT_OPTIONS=$(MAINTOPTS) dpkg-buildflags --get FCFLAGS)
-LDFLAGS:=$(shell DEB_BUILD_MAINT_OPTIONS=$(MAINTOPTS) dpkg-buildflags --get LDFLAGS)
-
-MAINTOPTS_EX = hardening=+all
-FCFLAGS_EX:=$(shell DEB_BUILD_MAINT_OPTIONS=$(MAINTOPTS_EX) dpkg-buildflags --get FCFLAGS)
-LDFLAGS_EX:=$(shell DEB_BUILD_MAINT_OPTIONS=$(MAINTOPTS_EX) dpkg-buildflags --get LDFLAGS)
+export DEB_BUILD_MAINT_OPTIONS = hardening=+all
+include /usr/share/dpkg/buildflags.mk
 
 %:
 	dh $@
@@ -28,22 +20,22 @@ build/liblbfgsb.a: build/lbfgsb.o build/timer.o
 	ar cr $@ $^
 
 build/lbfgsb-examples_driver1_77: driver1.f build/liblbfgsb.so
-	gfortran $(FCFLAGS_EX) $(LDFLAGS_EX) -o $@ $< -llbfgsb -Lbuild
+	gfortran $(FCFLAGS) $(LDFLAGS) -o $@ $< -llbfgsb -Lbuild
 
 build/lbfgsb-examples_driver1_90: driver1.f90 build/liblbfgsb.so
-	gfortran $(FCFLAGS_EX) $(LDFLAGS_EX) -o $@ $< -llbfgsb -Lbuild
+	gfortran $(FCFLAGS) $(LDFLAGS) -o $@ $< -llbfgsb -Lbuild
 
 build/lbfgsb-examples_driver2_77: driver2.f build/liblbfgsb.so
-	gfortran $(FCFLAGS_EX) $(LDFLAGS_EX) -o $@ $< -llbfgsb -Lbuild
+	gfortran $(FCFLAGS) $(LDFLAGS) -o $@ $< -llbfgsb -Lbuild
 
 build/lbfgsb-examples_driver2_90: driver2.f90 build/liblbfgsb.so
-	gfortran $(FCFLAGS_EX) $(LDFLAGS_EX) -o $@ $< -llbfgsb -Lbuild
+	gfortran $(FCFLAGS) $(LDFLAGS) -o $@ $< -llbfgsb -Lbuild
 
 build/lbfgsb-examples_driver3_77: driver3.f build/liblbfgsb.so
-	gfortran $(FCFLAGS_EX) $(LDFLAGS_EX) -o $@ $< -llbfgsb -Lbuild
+	gfortran $(FCFLAGS) $(LDFLAGS) -o $@ $< -llbfgsb -Lbuild
 
 build/lbfgsb-examples_driver3_90: driver3.f90 build/liblbfgsb.so
-	gfortran $(FCFLAGS_EX) $(LDFLAGS_EX) -o $@ $< -llbfgsb -Lbuild
+	gfortran $(FCFLAGS) $(LDFLAGS) -o $@ $< -llbfgsb -Lbuild
 
 execute_before_dh_auto_build:
 	mkdir -p build
@@ -57,4 +49,4 @@ execute_before_dh_auto_clean:
 	rm -rf build
 
 override_dh_compress:
-	dh_compress -X.pdf -X.f -X.f90 -Xoutput_
+	dh_compress -X.f -X.f90 -Xoutput_

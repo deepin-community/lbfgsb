@@ -1,16 +1,18 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: L-BFGS-B
-Files-Excluded: x.* ._* OUTPUTS/._* ../._Lbfgsb.3.0 linpack.f blas.f
-Source: http://users.iems.northwestern.edu/~nocedal/lbfgsb.html
- The pristine upstream source contains prebuilt binaries and various metadata
- files, as well as unused copied of LINPACK and BLAS. These are removed.
+Files-Excluded: x.* ._* OUTPUTS/._* ../._Lbfgsb.3.0 linpack.f blas.f *.pdf
+Source: https://users.iems.northwestern.edu/~nocedal/lbfgsb.html
+ The upstream source contains prebuilt binaries and various metadata
+ files, as well as unused copies of LINPACK and BLAS. These are
+ removed. It also contains PDFs, to which it seems unclear whether the
+ license is intended to apply. These are therefore also removed.
 
 Files: *
-Copyright: Ciyou Zhu, Richard Byrd, Jorge Nocedal, Jose Luis Morales
+Copyright: 2011 Ciyou Zhu, Richard Byrd, Jorge Nocedal, Jose Luis Morales
 License: BSD-3-clause
 
 Files: debian/*
-Copyright: 2013-2020 Gard Spreemann <gspr@nonempty.org>
+Copyright: 2013-2023 Gard Spreemann <gspr@nonempty.org>
 License: BSD-3-clause
 
 Files: debian/tests/*.f90
